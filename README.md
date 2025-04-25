@@ -1,12 +1,132 @@
-# React + Vite
+# People Management Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application for managing a list of people. The app consists of two parts:
+- **Frontend**: React.js + Vite
+- **Backend**: Spring Boot + PostgreSQL
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- View a list of people as a table
+- Add, edit, and delete people
+- Header and footer are added to make page look better
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Technologies Used
+
+- **React 19 + Vite**
+- **Bootstrap 5.3**
+- **Spring Boot 3 (Java 17+)**
+- **PostgreSQL (via Docker)**
+- **Gradle build system**
+- **Docker and Docker Compose**
+
+---
+
+## How to Run
+
+### 1. Clone the Projects from GitHub
+
+```bash
+git clone https://github.com/ajermoshkina7/people-frontend.git
+cd peaple-frontend
+```
+
+```bash
+git clone https://github.com/ajermoshkina7/people-backend.git
+cd people-backend
+```
+
+---
+
+### 2. Requirements
+
+Make sure you have the following installed:
+- Docker + Docker Compose
+- Java 17 or higher
+- Node.js + npm
+
+---
+
+### 3. Database in Docker
+
+1. Create a `.env` file in the project root with the following content:
+
+```env
+POSTGRES_USERNAME=postgres
+POSTGRES_PASSWORD=user
+```
+
+2. Start the PostgreSQL container:
+
+```bash
+docker-compose up -d
+```
+
+---
+
+### 4. Backend (Spring Boot)
+
+1. Ensure your `application.properties` contains:
+
+```properties
+spring.application.name=people
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=user
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+```
+
+2. Run the backend:
+
+```bash
+./gradlew bootRun
+```
+
+> Backend will be available at: `http://localhost:8080`
+
+---
+
+### 5. Frontend (React + Vite)
+
+1. Navigate to the frontend directory:
+
+```bash
+cd people-frontend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+```
+
+> Frontend is usually available at: `http://localhost:3000`
+
+> Ensure the `UserService.js` API points to the backend:  
+> `http://localhost:8080/api/users`
+
+---
+
+## Notes
+
+- Data is stored in a PostgreSQL database running in Docker.
+- Spring Boot auto-generates the schema (`ddl-auto=update`).
+- Axios is used in the frontend for API calls, and Bootstrap for styling.
+
+---
+
+## Conclusion
+
+Homework: Java Spring Boot + React.js based people management application.
