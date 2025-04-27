@@ -78,7 +78,7 @@ spring.datasource.username=postgres
 spring.datasource.password=user
 spring.datasource.driver-class-name=org.postgresql.Driver
 
-spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.ddl-auto=create-drop
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
 ```
 
@@ -122,11 +122,10 @@ npm run dev
 ## Notes
 
 - Data is stored in a PostgreSQL database running in Docker.
-- Spring Boot auto-generates the schema (`ddl-auto=update`).
 - Axios is used in the frontend for API calls, and Bootstrap for styling.
 
 ---
 
 ## Conclusion
 
-Homework: Java Spring Boot + React.js based people management application.
+Homework: Java Spring Boot + React.js based users management application.

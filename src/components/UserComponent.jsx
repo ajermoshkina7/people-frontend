@@ -156,7 +156,7 @@ const UserComponent = () => {
                         <div className='form-group mb-2'>
                             <label className='form-label'>Birthday:</label>
                             <input
-                                type='text'
+                                type='date'
                                 placeholder='Enter User Birthday'
                                 name='birthday'
                                 value={birthday}
